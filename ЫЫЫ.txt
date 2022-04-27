@@ -1,0 +1,276 @@
+
+    import java.io.BufferedReader;
+    import java.io.FileReader;
+    import java.io.FileWriter;
+    import java.io.IOException;
+    import java.lang.reflect.Array;
+    import java.nio.file.Files;
+    import java.nio.file.Paths;
+    import java.util.ArrayList;
+    import java.util.HashSet;
+    
+
+    public class MainClass {
+        public static void main(String[] args) throws IOException {
+     
+            // 1 job
+            System.out.println("Checking the answer to task 1:");
+            // Load into a string of characters from the input file of task 1
+            String s1 = new String(Files.readAllBytes(Paths.get("task1")));
+            // Split the resulting string by spaces into an array of strings (words)
+            String[] ss = s1.split(" ");
+            // Length of the shortest word
+            intmin = 255;
+            // Loop through all the words
+            for (String s: ss) {
+                // Read the length of the current word
+                inttemp = s.length();
+                // Compare with the length of the shortest word
+                if(temp < min)
+                    //if it is even less, then now this word is minimal
+                    min=temp;
+            }
+            // Display the minimum
+            System.out.println(min);
+     
+            // 2 task
+            System.out.println("Checking the answer to task 2:");
+            // Using the buffered read method, we read lines from the task file 2
+            BufferedReader reader2 = new BufferedReader(new FileReader("task2"));
+            // read the first line
+            String c2 = reader2.readLine();
+            // read the second line
+            String s2 = reader2.readLine();
+            // split the second line into words
+            String[] ss2 = s2.split(" ");
+            // loop through all the words of the second line
+            for (String s: ss2) {
+                // if the word starts with the letter of the first line
+                if(s.startsWith(c2)){
+                    // display it on the screen
+                    System.out.println(s);
+                }
+            }
+            // clear reader
+            reader2.close();
+     
+            // 3 task
+            System.out.println("Checking the answer to task 3:");
+            // Load into a string of characters from the input file of task 3
+            String s3 = new String(Files.readAllBytes(Paths.get("task3")));
+            // split string by spaces
+            String[] ss3 = s3.split(" ");
+            // future string constructor
+            StringBuilder sb3 = new StringBuilder();
+            // iterate over all parts of the string
+            for (String s: ss3) {
+                // if it contains a dot
+                if(s.startsWith(".")){
+                    // replace with 3 dots
+                    s = "...";
+                    // add to the future line
+                    sb3.append(s+ " ");
+                }
+                // if not a dot, add without changes
+                else
+                    sb3.append(s + " ");
+            }
+            // output the final line
+            System.out.println(sb3.toString());
+     
+            // 4 task
+            System.out.println("Check task 4 in task4_output");
+            //// Using the buffered read method, we read lines from the input file of task 4
+            BufferedReader reader4 = new BufferedReader(new FileReader("task4_input"));
+            // Use the text file writer constructor to write to job 4's output file
+            FileWriter writer4 = new FileWriter("task4_output");
+            // Read the first line from the input file
+            String s4 = reader4.readLine();
+            // Until the end of the input file
+            while (s4!= null){
+                // write the current line to the output file
+                // separated by a space of its length and move the caret to the next line
+                writer4.write(s4 + " "+ s4.length() + '\n');
+                // read the following line from the input file
+                s4 = reader4.readLine();
+            }
+            // remove everything written to the file
+            writer4.flush();
+            // close to clear memory
+            writer4.close();
+            reader4.close();
+            
+            // 5 task
+            System.out.println("Check task 5 in file task5_output");
+            //// Using the buffered read method, we read lines from the input file of task 5
+            BufferedReader reader5 = new BufferedReader(new FileReader("task5_input"));
+            // read the first line of the input file
+            String s5 = reader5.readLine();
+            // find 2 numbers in it
+            String[] ss5 = s5.split("\\D+");
+            // assign them in order
+            int k1 = Integer.parseInt(ss5[0]);
+            int k2 = Integer.parseInt(ss5[1]);
+            // write to job 5 output file
+            FileWriter writer5 = new FileWriter("task5_output");
+            // create a list of strings
+            ArrayList<String> list5 = new ArrayList<String>();
+            //read the second line of the input file
+            s5 = reader5.readLine();
+            // as long as there are lines in the file
+            while (s5 != null) {
+                // add the current line to the list
+                list5.add(s5);
+                // read next line
+                s5 = reader5.readLine();
+            }
+            // go through the interval specified by the numbers from the first line
+            for (int i = k1; i <= k2; i++) {
+                // write the current line with the current index (-1 because indexing in the 
+    list starts from 0)
+                writer5.write(list5.get(i-1) + '\n');
+            }
+            // put everything in the output file of task 5
+            writer5.flush();
+            // close to clear memory
+            writer5.close();
+            reader5.close();
+    
+    
+            // task 6
+            System.out.println("Check task 6 in file task6_output");
+            //// Using the buffered read method, we read lines from the input file of task 6
+            BufferedReader reader6 = new BufferedReader(new FileReader("task6_input"));
+            // list of all lines of the input file
+            ArrayList<String> list6 = new ArrayList<String>();
+            // read the first line
+            String s6 = reader6.readLine();
+            // while there are still lines in the file
+            while (s6!=null){
+                // add them to the list
+                list6.add(s6);
+                s6 = reader6.readLine();
+            }
+            // output file constructor
+            FileWriter writer6 = new FileWriter("task6_output");
+            // walk through the entire list of strings
+            for (String s: list6) {
+                // if there is a string with a space
+                if(s.contains(" ")){
+                    // add it to the output file
+                    writer6.write(s+'\n');
+                }
+            }
+            // upload to output file and close
+            writer6.flush();
+            writer6.close();
+            reader6.close();
+    
+            // 7 task
+            System.out.println("Checking the answer to task 7:");
+            // offer
+            String s71 = "one, two, three";
+            // character numbers
+            String s72 = "3 8";
+            //translate them from string format to integer
+            // getting characters at the index of the first(0) and third(2) (no space) 
+    elements of the string
+            int s7 = Character.getNumericValue(s72.charAt(0));
+            int k7 = Character.getNumericValue(s72.charAt(2));
+            //Put the sentence into the string constructor
+            StringBuilder sb7 = new StringBuilder(s71);
+            // Insert letter s in place of k
+            // getting character at index s-1, because indexing in constructor starts from 0
+            sb7.insert(k7, s71.charAt(s7-1));
+            // remove s from its original place
+            sb7.deleteCharAt(s7-1);
+            // display the result
+            System.out.println(sb7.toString());
+    
+            // task 8
+            System.out.println("Checking the answer to task 8:");
+            // input sentence
+            String s8 = "How many words?";
+            // split by spaces into words
+            String[] ss8 = s8.split(" ");
+            // if the number of words is more than three
+            if(ss8.length > 3)
+                // output yes
+                System.out.println("yes");
+            else
+                // if less than three, then no
+                System.out.println("no");
+    
+            // task 9
+            System.out.println("Checking the answer to task 9:");
+            // input word
+            String s9 = "word";
+            // get word length
+            int length = s9.length();
+            // put word into string constructor
+            StringBuilder sb9 = new StringBuilder(s9);
+            // by number of word length
+            for (int i = 0; i < length; i++){
+                // insert * at the beginning
+                sb9.insert(0,"*");
+                // insert * at the end
+                sb9.insert(length+i+1,"*");
+            }
+            // display the result on the screen
+            System.out.println(sb9.toString());
+    
+            // 10 task
+            System.out.println("Checking the answer to task 10:");
+            // input letters
+            String s101 = "abcd";
+            // string in which to search for letters
+            String s102 = "aaccddhklm";
+            // for each character of the first line
+            for (char c: s101.toCharArray()) {
+                // check if the second line has this character by index
+                // if there is no character, the index of this character in the second line 
+   will be equal to -1
+                // accordingly, false will be displayed on the screen
+                // if there is, then true
+                System.out.print( (s102.indexOf(c) != -1) + " " );
+            }
+            // Line break
+            System.out.println();
+    
+            // 11 task
+            System.out.println("Checking the answer to task 11:");
+            // input string
+            String s11 = "AacII1fcfBBqQrc";
+            // list data structure without repeating values
+            HashSet<Character> set11 = new HashSet();
+            // add to the Set list all characters from the string reduced to lower case
+            for (char c: s11.toLowerCase().toCharArray()) {
+                // only unique characters will be added to the list without repetition
+                    set11.add((Character)c);
+            }
+            // display the size of the list, i.e. how many unique letters
+            System.out.println(set11.size());
+    
+            // 12 task
+            System.out.println("Checking the answer to task 12:");
+            // input string
+            String s12 = "1 - one, 2 - two, 3 - three";
+            // max digit
+            int max = -1;
+            // loop through each character of the string
+            for (char c: s12.toCharArray()) {
+                //if character is a digit
+                if (Character.isDigit(c) == true) {
+                    // convert to integer
+                    int tmp = Character.getNumericValue(c);
+                    // if the current digit is greater than the previous maximum
+                    if (tmp > max) {
+                        // then now it is maximum
+                        max=tmp;
+                    }
+                }
+            }
+            // output the maximum number
+            System.out.println(max);
+        }
+    }
