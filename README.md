@@ -1,15 +1,8 @@
 #include "MainClass.h"
+#include <iostream>
+#include <string>
+#include <fstream>
 
-
-using BufferedReader = java::io::BufferedReader;
-using FileReader = java::io::FileReader;
-using FileWriter = java::io::FileWriter;
-using IOException = java::io::IOException;
-using Array = java::lang::reflect::Array;
-using Files = java::nio::file::Files;
-using Paths = java::nio::file::Paths;
-using ArrayList = java::util::ArrayList;
-using HashSet = java::util::HashSet;
 
 void MainClass::main(std::vector<std::wstring> &args)
 {
@@ -310,4 +303,4 @@ void MainClass::main(std::vector<std::wstring> &args)
 	delete reader4;
 	delete sb3;
 	delete reader2;
-}
+	}
