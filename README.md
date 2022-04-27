@@ -1,11 +1,14 @@
-#include "MainClass.h"
-#include <iostream>
-#include <string>
-#include <fstream>
 
+    #include "MainClass.h"
 
-void MainClass::main(std::vector<std::wstring> &args)
-{
+    #include <iostream>
+	
+    #include <string>
+	
+    #include <fstream>
+
+    void MainClass::main(std::vector<std::wstring> &args)
+    {
 
 	// 1 задание
 	std::wcout << L"Проверка ответа на задание 1:" << std::endl;
